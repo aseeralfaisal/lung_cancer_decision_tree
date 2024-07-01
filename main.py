@@ -5,13 +5,9 @@ from sklearn.tree import DecisionTreeClassifier
 data = pd.read_csv('./dataset/dataset.csv')
 data['GENDER'] = data['GENDER'].map({'M': 1, 'F': 2})
 
-# creating the dataframe columns used for prediction
 X = data[['AGE', 'SMOKING', 'ANXIETY', 'ALCOHOL_CONSUMING', 'GENDER']]
-
-# this column represents the target variable
 Y = data['LUNG_CANCER']
 
-# model training
 model = DecisionTreeClassifier()
 model.fit(X.values, Y)
 prediction = model.predict(
